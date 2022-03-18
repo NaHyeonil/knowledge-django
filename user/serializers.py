@@ -22,7 +22,7 @@ class UserCreationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ["user_id", "password", "password2", "name",
+        fields = ["user_id", "password", "password2", "username",
                   "nickname", "phone_num", "email"]
 
     def validate(self, attrs):
@@ -32,12 +32,12 @@ class UserCreationSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         user_id = validated_data["user_id"]
-        name = validated_data["name"]
+        username = validated_data["username"]
         password = validated_data["password"]
         nickname = validated_data.get("nickname", "")
         phone_num = validated_data["phone_num"]
         email = validated_data["email"]
-        new_user = User(user_id=user_id, username=name, nickname=nickname, phone_num=phone_num, email=email,)
+        new_user = User(user_id=user_id, username=username, nickname=nickname, phone_num=phone_num, email=email,)
         new_user.set_password(password)
         new_user.save()
         return new_user
@@ -47,7 +47,7 @@ class TokenObtainPairSerializer(OriginTokenObtainPairSerializer):
     def validate(self, attrs):
         data: Dict = super().validate(attrs)
         data["user_id"] = self.user.user_id
-        data["name"] = self.user.username
+        data["username"] = self.user.username
         data["nickname"] = self.user.user_nickname
         data["is_staff"] = self.user.is_staff
         data["is_superuser"] = self.user.is_superuser
@@ -63,5 +63,5 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ["user_id", "is_superuser", "is_staff", "name", "nickname",
+        fields = ["user_id", "is_superuser", "is_staff", "username", "nickname",
                   "phone_num", "notice_set", "is_active"]

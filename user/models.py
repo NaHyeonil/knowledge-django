@@ -47,7 +47,7 @@ class User(AbstractUser):
         MinLengthValidator(6),
         RegexValidator(regex='^[a-zA-Z0-9]*$'),
     ], )
-    name = models.CharField(max_length=20)
+    username = models.CharField(max_length=20)
     nickname = models.CharField(max_length=50, unique=True)
     phone_num = models.CharField(max_length=13, validators=[
         RegexValidator(r'^\d{3}-\d{3,4}-\d{4}$', message="오류"),
