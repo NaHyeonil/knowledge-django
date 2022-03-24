@@ -24,6 +24,10 @@ class Knowledge_ShareViewSet(viewsets.ModelViewSet):
         if query:
             qs = qs.filter(title__icontains=query)
 
+        category = self.request.query_params.get("category", "")
+        if category:
+            qs = qs.filter(category__icontains=category)
+
         return qs
 
     def get_serializer_class(self):
