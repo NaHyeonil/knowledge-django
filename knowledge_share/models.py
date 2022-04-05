@@ -22,6 +22,7 @@ class Knowledge_Share(models.Model):
     img4 = models.ImageField(upload_to="knowledge/knowledge_share/%Y/%m/%d/%H/%M/%S", blank=True)
     img5 = models.ImageField(upload_to="knowledge/knowledge_share/%Y/%m/%d/%H/%M/%S", blank=True)
     update_at = models.DateTimeField(auto_now_add=True)
+    view_cnt = models.PositiveIntegerField(default=0)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, db_column='user_id')
 
     def __str__(self) -> str:

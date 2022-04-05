@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'knowledge_share',
     'hotdeal',
     'notice',
-    'credit_management',
+    'trade',
+    'point_management',
 ]
 
 MIDDLEWARE = [
