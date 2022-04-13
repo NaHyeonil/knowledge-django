@@ -9,7 +9,8 @@ urlpatterns = [
     path('knowledge/', include('knowledge_share.urls')),
     path('hotdeal/', include('hotdeal.urls')),
     path('notice/', include('notice.urls')),
-    path('credit/', include('credit_management.urls')),
+    path('point/', include('point_management.urls')),
+    path('trade/', include('trade.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL,
