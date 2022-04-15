@@ -54,5 +54,6 @@ class User(AbstractUser):
     ], help_text="입력예) 010-1234-1234")
     email = models.CharField(max_length=100, unique=True)
     signup_date = models.DateTimeField(auto_now_add=True, null=True)
-    credit = models.IntegerField(default=0)
+    accumulated_point = models.IntegerField(default=0)
+    available_point = models.IntegerField(default=0)
     objects = CustomUserManager()
