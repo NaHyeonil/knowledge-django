@@ -95,7 +95,7 @@ DATABASES = {
         'NAME': 'knowledge_db',
         'USER': 'knowledge_user',
         'PASSWORD': 'za786459',
-        'HOST': 'api.hyeonil.com',
+        'HOST': 'db.hyeonil.com',
         'PORT': '3306'
     }
 }
