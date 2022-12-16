@@ -1,4 +1,4 @@
-# project-pajama-django
+# project-django
 
 ```angular2html
 SECRET_KEY = SECRET KEY
